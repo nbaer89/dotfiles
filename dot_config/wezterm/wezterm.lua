@@ -49,10 +49,10 @@ config.mouse_bindings = {
 			else
 				window:perform_action(act({ PasteFrom = "Clipboard" }), pane)
 			end
-		end),
+		end),:/Users/nbaer/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe'
 	},
 }
-config.default_prog = { 'C:/Users/nbaer/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe' }
+config.default_prog = { 'C:/Program Files/PowerShell/7/pwsh.exe' }
 
 -- Visual bell
 config.audible_bell = 'Disabled'
