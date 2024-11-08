@@ -10,12 +10,13 @@ local config = {}
 local keys = {}
 local mouse_bindings = {}
 local launch_menu = {}
+wezterm.gui.enumerate_gpus()
 
 -- This is for newer wezterm vertions to use the config builder
 if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.8
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.color_scheme = "Rosé Pine (Gogh)"
 -- This is my chosen font, we will get into installing fonts on windows later
