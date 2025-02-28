@@ -41,7 +41,7 @@ config.win32_system_backdrop = "Acrylic"
 
 -- Tab Bar Configuration
 config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.show_tab_index_in_tab_bar = false
 config.use_fancy_tab_bar = false
 config.colors.tab_bar = {
