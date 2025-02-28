@@ -1,35 +1,91 @@
--- These are the basic's for using wezterm.
--- Mux is the mutliplexes for windows etc inside of the terminal
--- Action is to perform actions on the terminal
 local wezterm = require("wezterm")
-local mux = wezterm.mux
-local act = wezterm.action
+local config = wezterm.config_builder()
+local opacity = 0.5
+local transparent_bg = "rgba(22, 24, 26, " .. opacity .. ")"
 
--- These are vars to put things in later (i dont use em all yet)
-local config = {}
-local keys = {}
-local mouse_bindings = {}
+--- Get the current operating system
+-- @return "windows"| "linux" | "macos"
+local function get_os()
+	local bin_format = package.cpath:match("%p[\\|/]?%p(%a+)")
+	if bin_format == "dll" then
+		return "windows"
+	elseif bin_format == "so" then
+		return "linux"
+	elseif bin_format == "dylib" then
+		return "macos"
+	end
+end
+local host_os = get_os()
+local act = wezterm.action
 local launch_menu = {}
+
 wezterm.gui.enumerate_gpus()
 
--- This is for newer wezterm vertions to use the config builder
-if wezterm.config_builder then
-	config = wezterm.config_builder()
-end
-config.window_background_opacity = 0.8
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-config.color_scheme = "Rosé Pine (Gogh)"
--- This is my chosen font, we will get into installing fonts on windows later
+config.launch_menu = launch_menu
+
+-- Font Configuration
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 11
-config.launch_menu = launch_menu
--- makes my cursor blink
+
+-- Color Configuration
+config.colors = require("cyberdream")
+config.force_reverse_video_cursor = true
+
+-- Window Configuration
+config.initial_rows = 45
+config.initial_cols = 180
+config.window_decorations = "RESIZE"
+config.window_background_opacity = opacity
+config.window_close_confirmation = "NeverPrompt"
+config.win32_system_backdrop = "Acrylic"
+
+-- Tab Bar Configuration
+config.enable_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = true
+config.show_tab_index_in_tab_bar = false
+config.use_fancy_tab_bar = false
+config.colors.tab_bar = {
+	background = transparent_bg,
+	new_tab = { fg_color = config.colors.background, bg_color = config.colors.brights[6] },
+	new_tab_hover = { fg_color = config.colors.background, bg_color = config.colors.foreground },
+}
+
+-- Tab Formatting
+wezterm.on("format-tab-title", function(tab, _, _, _, hover)
+	local background = config.colors.brights[1]
+	local foreground = config.colors.foreground
+
+	if tab.is_active then
+		background = config.colors.brights[7]
+		foreground = config.colors.background
+	elseif hover then
+		background = config.colors.brights[8]
+		foreground = config.colors.background
+	end
+
+	local title = tostring(tab.tab_index + 1)
+	return {
+		{ Foreground = { Color = background } },
+		{ Text = "█" },
+		{ Background = { Color = background } },
+		{ Foreground = { Color = foreground } },
+		{ Text = title },
+		{ Foreground = { Color = background } },
+		{ Text = "█" },
+	}
+end)
+
+-- Performance Settings
+config.max_fps = 120
+config.animation_fps = 60
+
+-- Cursor Config
 config.default_cursor_style = "BlinkingBar"
+config.cursor_blink_rate = 250
+
+-- Keybinds
 config.use_dead_keys = false
 config.disable_default_key_bindings = true
-config.initial_rows = 30
-config.initial_cols = 120
--- this adds the ability to use ctrl+v to paste the system clipboard
 config.keys = {
 	{
 		key = "v",
@@ -54,15 +110,15 @@ config.mouse_bindings = {
 		end),
 	},
 }
+
+-- Default Shell
 config.default_prog = { "C:/Program Files/PowerShell/7/pwsh.exe" }
 
--- Visual bell
-config.audible_bell = "Disabled"
-config.visual_bell = {
-	target = "CursorColor",
-	fade_in_function = "EaseIn",
-	fade_in_duration_ms = 150,
-	fade_out_function = "EaseOut",
-	fade_out_duration_ms = 300,
-}
+-- OS Specific Overrides
+if host_os == "linux" then
+	config.defualt_prog = { "zsh" }
+	config.front_end = "WebGpu"
+	config.window_decorations = nil
+end
+
 return config
