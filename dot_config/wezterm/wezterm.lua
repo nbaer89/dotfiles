@@ -34,7 +34,7 @@ config.force_reverse_video_cursor = true
 -- Window Configuration
 config.initial_rows = 45
 config.initial_cols = 180
-config.window_decorations = "RESIZE"
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_background_opacity = opacity
 config.window_close_confirmation = "NeverPrompt"
 config.win32_system_backdrop = "Acrylic"
