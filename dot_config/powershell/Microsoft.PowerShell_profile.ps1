@@ -258,3 +258,5 @@ Set-Alias lt eza-lt
 Set-Alias ltree eza-ltree
 # Misc
 Set-Alias cl clear
+# Zoxide
+Set-Alias z zoxide
