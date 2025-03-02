@@ -240,6 +240,8 @@ Register-ArgumentCompleter -CommandName 'kubectl' -ScriptBlock {
 # Starship
 Invoke-Expression (&starship init powershell)
 $ENV:STARSHIP_CONFIG = "$HOME\.config\starship\starship.toml"
+# Zoxide
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
 # Aliases
 # Git 
 Set-Alias g git
