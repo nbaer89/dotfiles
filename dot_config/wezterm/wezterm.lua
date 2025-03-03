@@ -112,7 +112,7 @@ config.mouse_bindings = {
 }
 
 -- Default Shell
-config.default_prog = { "C:/Program Files/PowerShell/7/pwsh.exe" }
+config.default_prog = { "nu" }
 
 -- OS Specific Overrides
 if host_os == "linux" then
