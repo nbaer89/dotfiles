@@ -1,0 +1,37 @@
+$nu.config-path
+exit
+config nu
+exit
+$nu.config-path
+exit
+$env.config.shell_integration.osc133 = false
+clear
+exit
+$nu.config-path
+exit
+config nu
+exit
+l
+exit
+config nu
+exit
+nu
+l
+config nu
+exit
+l
+ls
+l
+config nu
+exit
+nu
+l
+config nu
+exit
+chezmoi edit .config\wezterm\wezterm.lua
+chezmoi apply
+exit
+nu
+exit
+config nu
+exit
