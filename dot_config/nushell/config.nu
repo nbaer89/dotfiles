@@ -29,6 +29,7 @@ alias ltree = eza --tree --level=2 --icons --git
 # invoke shell
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+$env.STARSHIP_CONFIG = ($env.XDG_CONFIG_HOME + "\\starship\\starship.toml")
 
 $env.config.show_banner = false
 

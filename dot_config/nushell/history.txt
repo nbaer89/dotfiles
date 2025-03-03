@@ -35,3 +35,41 @@ nu
 exit
 config nu
 exit
+$starship
+env STARSHIP_LOG=trace starship module rust
+config nu
+exit
+config nu
+pwsh
+config nu
+echo $STARSHIP_CONFIG
+$env.HOME 
+$env.XDG_CONFIG_HOME
+$env.STARSHIP_CONFIG
+config nu
+exit
+config nu
+$env.STARSHIP_CONFIG
+($env.XDG_HOME_CONFIG | prepend "\starship\starship.toml")
+($env.XDG_HOME_CONFIG | prepend "/starship/starship.toml")
+$env.XDG_HOME_CONFIG
+$env.HOME
+$env.XDG_HOME_CONFIG
+$env.XDG_CONFIG_HOME
+($env.XDG_CONFIG_HOME | prepend "/starship/starship.toml")
+($env.XDG_CONFIG_HOME | append "/starship/starship.toml")
+($env.XDG_CONFIG_HOME | append "\starship\starship.toml")
+$env.TEST = ($env.XDG_CONFIG_HOME | append "/starship/starship.toml")
+$env.TEST
+$env.XDG_CONFIG_HOMEstarship/starship.toml
+$env.TEST = ($env.XDG_CONFIG_HOME + append "/starship/starship.toml")
+$env.TEST = ($env.XDG_CONFIG_HOME + "/starship/starship.toml")
+$env.TEST
+$env.TEST = ($env.XDG_CONFIG_HOME + "\starship\starship.toml")
+$env.TEST = ($env.XDG_CONFIG_HOME + "\\starship\\starship.toml")
+$env.TEST
+config nu
+exit
+chezmoi readd .config\starship\
+chezmoi re-add .config\starship\
+chezmoi cd
