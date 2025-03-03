@@ -20,7 +20,6 @@
 # configs
 $env.config.shell_integration.osc133 = false
 $env.config.buffer_editor = "nvim"
-$env.config.show_banner = false
 
 # alias 
 alias l = eza -l --icons --git -a
@@ -31,4 +30,5 @@ alias ltree = eza --tree --level=2 --icons --git
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
+$env.config.show_banner = false
 
