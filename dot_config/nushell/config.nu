@@ -25,6 +25,8 @@ $env.config.buffer_editor = "nvim"
 alias l = eza -l --icons --git -a
 alias lt = eza --tree --level=2 --long --icons --git
 alias ltree = eza --tree --level=2 --icons --git
+alias vi = nvim
+alias vim = nvim
 
 # invoke shell
 mkdir ($nu.data-dir | path join "vendor/autoload")
@@ -32,4 +34,4 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 $env.STARSHIP_CONFIG = ($env.XDG_CONFIG_HOME + "\\starship\\starship.toml")
 
 $env.config.show_banner = false
-
+source ~/.zoxide.nu
