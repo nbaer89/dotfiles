@@ -34,4 +34,3 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 $env.STARSHIP_CONFIG = ($env.XDG_CONFIG_HOME + "\\starship\\starship.toml")
 
 $env.config.show_banner = false
-source ~/.zoxide.nu
