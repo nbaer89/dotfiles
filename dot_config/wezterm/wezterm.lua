@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
-local opacity = 0.5
+local opacity = 0.75
 local transparent_bg = "rgba(22, 24, 26, " .. opacity .. ")"
 local theme = wezterm.plugin.require('https://github.com/neapsix/wezterm').main
 
