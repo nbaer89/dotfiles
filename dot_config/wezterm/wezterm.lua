@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local opacity = 0.5
 local transparent_bg = "rgba(22, 24, 26, " .. opacity .. ")"
+local theme = wezterm.plugin.require('https://github.com/neapsix/wezterm').main
 
 --- Get the current operating system
 -- @return "windows"| "linux" | "macos"
@@ -28,8 +29,9 @@ config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 11
 
 -- Color Configuration
-config.colors = require("cyberdream")
+config.colors = theme.colors()
 config.force_reverse_video_cursor = true
+config.window_frame = theme.window_frame()
 
 -- Window Configuration
 config.initial_rows = 45
