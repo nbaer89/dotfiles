@@ -1,22 +1,20 @@
 format = """
+[░▒▓](#a3aed2)\
+[$os](bg:#a3aed2 fg:#090c0c)\
+[](bg:#769ff0 fg:#a3aed2)\
 $directory\
+[](fg:#769ff0 bg:#394260)\
 $git_branch\
 $git_status\
-$fill\
-$python\
-$lua\
+[](fg:#394260 bg:#212736)\
 $nodejs\
-$golang\
-$haskell\
 $rust\
-$ruby\
-$package\
-$aws\
-$docker_context\
-$jobs\
-$cmd_duration\
-$line_break\
-$character"""
+$golang\
+$php\
+[](fg:#212736 bg:#1d2230)\
+$time\
+[ ](fg:#1d2230)\
+\n$character"""
 
 add_newline = true
 palette = 'nord'
