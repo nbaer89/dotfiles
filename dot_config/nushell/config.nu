@@ -16,6 +16,7 @@
 #
 # You can remove these comments if you want or leave
 # them for future reference.
+$env.XDG_CONFIG_HOME = ($env.HOME + "/.config")
 
 # configs
 $env.config.shell_integration.osc133 = false
@@ -31,6 +32,7 @@ alias vim = nvim
 # invoke shell
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
-$env.STARSHIP_CONFIG = ($env.XDG_CONFIG_HOME + "\\starship\\starship.toml")
+$env.STARSHIP_CONFIG = ($env.XDG_CONFIG_HOME + "/starship/starship.toml")
+source ~/.zoxide.nu
 
 $env.config.show_banner = false
