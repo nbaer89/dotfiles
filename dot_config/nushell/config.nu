@@ -21,6 +21,7 @@ $env.XDG_CONFIG_HOME = ($env.HOME + "/.config")
 # configs
 $env.config.shell_integration.osc133 = false
 $env.config.buffer_editor = "nvim"
+$env.EDITOR = "nvim"
 
 # alias 
 alias l = eza -l --icons --git -a
