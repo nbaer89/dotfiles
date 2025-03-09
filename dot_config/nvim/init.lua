@@ -984,7 +984,7 @@ require("lazy").setup({
 				"markdown_inline",
 				"query",
 				"vim",
-				"vimdoc",,
+				"vimdoc",
         "json",
         "yaml",
         "python",
