@@ -134,5 +134,7 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fixport VISUAL=nvim
 
+eval "$(ssh-agent -s)"
+
 
 exec $HOME/.cargo/bin/nu
