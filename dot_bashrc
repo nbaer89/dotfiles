@@ -126,12 +126,13 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 
 # Use neovim as the default editor.
 export EDITOR=nvim
+export VISUAL=nvim
 
 # fnm
 FNM_PATH="/home/nbaer/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "`fnm env`"
-fixport VISUAL=nvim
+fi
 
 exec $HOME/.cargo/bin/nu
