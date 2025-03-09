@@ -17,7 +17,7 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 $env.XDG_CONFIG_HOME = ($env.HOME + "/.config")
-$env.PATH = ($env.PATH | split row (char esep)
+$env.PATH = ($env.PATH | split row (char esep))
 # configs
 $env.config.shell_integration.osc133 = false
 $env.config.buffer_editor = "nvim"
