@@ -909,7 +909,7 @@ require("lazy").setup({
 		priority = 1000, -- Make sure to load this before all the other start plugins.
 		config = function()
 			---@diagnostic disable-next-line: missing-fields
-			require("rise-pine").setup({
+			require("rose-pine").setup({
 				styles = {
 					comments = { italic = false }, -- Disable italics in comments
 				},
@@ -985,11 +985,11 @@ require("lazy").setup({
 				"query",
 				"vim",
 				"vimdoc",
-        "json",
-        "yaml",
-        "python",
-        "rust",
-        "toml",
+				"json",
+				"yaml",
+				"python",
+				"rust",
+				"toml",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
