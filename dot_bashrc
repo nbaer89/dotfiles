@@ -136,3 +136,15 @@ if [ -d "$FNM_PATH" ]; then
 fi
 
 exec $HOME/.cargo/bin/nu
+
+# Drop into nushell if:
+# - The parent process isn't nushell.
+# - Not running a command like `bash -c 'echo foo'`.
+if [[ $(ps --no-header --pid=$PPID --format=comm) != "nu" && -z ${BASH_EXECUTION_STRING} && ${SHLVL} == 1 ]]; then
+    # Let nu whether it's a login shell.
+    if ! shopt -q login_shell; then
+        exec nu --login
+    else
+        exec nu
+    fi
+fi
