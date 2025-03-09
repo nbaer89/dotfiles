@@ -112,6 +112,21 @@ if ! shopt -oq posix; then
   fi
 fi
 . "$HOME/.cargo/env"
-
 . "$HOME/.local/bin/env"
+
+# XDG base directories.
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_PICTURES_DIR="$HOME/Pictures"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# SSH-ing.
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+
+# Use neovim as the default editor.
+export EDITOR=nvim
+export VISUAL=nvim
+
+
 exec $HOME/.cargo/bin/nu
