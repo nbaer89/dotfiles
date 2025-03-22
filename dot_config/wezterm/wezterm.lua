@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local opacity = 0.75
 local transparent_bg = "rgba(22, 24, 26, " .. opacity .. ")"
-local theme = wezterm.plugin.require('https://github.com/neapsix/wezterm').main
+local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 
 --- Get the current operating system
 -- @return "windows"| "linux" | "macos"
@@ -114,7 +114,7 @@ config.mouse_bindings = {
 }
 
 -- Default Shell
-config.default_prog = { "nu" }
+config.default_prog = { "pwsh" }
 
 -- OS Specific Overrides
 if host_os == "linux" then
