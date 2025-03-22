@@ -240,6 +240,7 @@ Register-ArgumentCompleter -CommandName 'kubectl' -ScriptBlock {
 # Starship
 Invoke-Expression (&starship init powershell)
 $ENV:STARSHIP_CONFIG = "$HOME\.config\starship\starship.toml"
+$ENV:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
 # Zoxide
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 # Aliases
