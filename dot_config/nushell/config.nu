@@ -22,6 +22,7 @@ $env.PATH = ($env.PATH | split row (char esep))
 $env.config.shell_integration.osc133 = false
 $env.config.buffer_editor = "nvim"
 $env.EDITOR = "nvim"
+$env.KOMEREBI_CONFIG_HOME = ($env.XDG_CONFIG_HOME + "/komorebi")
 
 # alias 
 alias l = eza -l --icons --git -a
