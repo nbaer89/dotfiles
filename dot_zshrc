@@ -98,8 +98,6 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 export EDITOR=nvim
 export VISUAL=nvim
 
-export STARTSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
