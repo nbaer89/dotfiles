@@ -126,5 +126,3 @@ alias ltree="eza --tree --level=2 --icons --git"
 alias vi="nvim"
 alias vim="nvim"
 
-eval "$(starship init zsh)"
-
