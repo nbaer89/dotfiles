@@ -74,6 +74,9 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+. "$HOME/.cargo/env"
+. "$HOME/.local/bin/env"
+
 # User configuration
 # XDG base directories.
 export XDG_CACHE_HOME="$HOME/.cache"
