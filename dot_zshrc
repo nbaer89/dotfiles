@@ -129,6 +129,7 @@ alias lt="eza --tree --level=2 --long --icons --git"
 alias ltree="eza --tree --level=2 --icons --git"
 alias vi="nvim"
 alias vim="nvim"
+alias chezmoi="cz"
 
 eval "$(zoxide init zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
