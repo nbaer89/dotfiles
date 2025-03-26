@@ -96,7 +96,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 export EDITOR=nvim
 export VISUAL=nvim
 
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
