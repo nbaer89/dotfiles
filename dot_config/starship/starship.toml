@@ -1,6 +1,6 @@
 format = """
-$os\
 $username\
+$os\
 $directory\
 $git_branch\
 $git_status\
@@ -78,14 +78,14 @@ use_12hr = true
 
 [username]
 disabled = false
-format = "[](fg:overlay)[ $user ]($style)[](fg:overlay) "
+format = "[](fg:overlay)[ 󰧱 $user ]($style)[](fg:overlay) "
 show_always = true
 style_root = "bg:overlay fg:iris"
 style_user = "bg:overlay fg:iris"
 
 [os]
 disabled = false
-format = "[](fg:overlay)[ 󰧱 $symbol ]($style)[](fg:overlay) "
+format = "[](fg:overlay)[ $symbol ]($style)[](fg:overlay) "
 style = "bg:overlay fg:iris"
 
 [os.symbols]
