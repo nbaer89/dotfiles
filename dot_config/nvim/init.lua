@@ -236,35 +236,25 @@ require("lazy").setup({
 	--
 	-- Use `opts = {}` to automatically pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
 	--
+	--
+
 	{
-		"olimorris/codecompanion.nvim",
-		config = true,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		opts = {
-			adapters = {
-				copilot = function()
-					return require("codecompanion.adapters").extend("copilot", {
-						schema = {
-							model = {
-								default = "claude-3.7-sonnet",
-							},
-						},
-					})
-				end,
-			},
-			strategies = {
-				chat = {
-					adapter = "copilot",
-				},
-				inline = {
-					adapter = "copilot",
-				},
-			},
-		},
+		"github/copilot.vim",
 	},
+
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		dependencies = {
+			{ "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+			{ "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+		},
+		build = "make tiktoken", -- Only on MacOS or Linux
+		opts = {
+			-- See Configuration section for options
+		},
+		-- See Commands section for default commands if you want to lazy load on them
+	},
+
 	-- Alternatively, use `config = function() ... end` for full control over the configuration.
 	-- If you prefer to call `setup` explicitly, use:
 	--    {
