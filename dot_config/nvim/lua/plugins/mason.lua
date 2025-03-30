@@ -12,8 +12,8 @@ return {
 		"shfmt",
 	    },
 	},
-	config = function()
-	    require("mason").setup()
+	config = function(_, opts)
+	    require("mason").setup(opts)
 	end
     },
 }
