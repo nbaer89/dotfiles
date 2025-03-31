@@ -98,6 +98,7 @@ export VISUAL=nvim
 
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
+. "$HOME/.local/share/../bin/env"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
