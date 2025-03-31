@@ -1,1 +1,1 @@
-vim.lsp.enable('basedpyright, 'rust_analyzer', 'luals')
+vim.lsp.enable('basedpyright', 'rust_analyzer', 'luals')
