@@ -1,0 +1,6 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+cargo install bob-nvim
+$HOME/.cargo/bin/bob install stable
+$HOME/.cargo/bin/bob use stable
+{{ end -}}
