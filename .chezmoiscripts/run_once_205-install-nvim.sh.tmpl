@@ -1,6 +1,8 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/usr/bin/env bash
-cargo install bob-nvim
+sudo apt install -y fzf ripgrep unzip fd-find
+cargo install tree-sitter-cli --locked
+cargo install bob-nvim --locked
 $HOME/.cargo/bin/bob install stable
 $HOME/.cargo/bin/bob use stable
 {{ end -}}

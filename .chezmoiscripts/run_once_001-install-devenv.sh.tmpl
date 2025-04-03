@@ -1,0 +1,10 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install -y make gcc unzip git xclip curl wget cmake python3-pip ninja-build /
+gettext build-essential
+
+git config --global user.name "Nathan Baer"
+git config --global user.email "nbaer89@gmail.com"
+
+{{ end -}}
