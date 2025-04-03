@@ -1,0 +1,6 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+cargo install jj-cli --locked
+jj config set --user user.name "Nathan Baer"
+jj config set --user user.email "nbaer89@gmail.com"
+{{ end -}}
