@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+sudo apt install -y zsh
+hash -r
+sudo chsh -s $(which zsh)
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.zsh/plugins/fsh
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
+{{ end -}}
