@@ -142,10 +142,10 @@ workspaces:
 window_rules:
   - commands: ['move --workspace 6']
     match:
-      - window_process: { equals: 'OUTLOOK.EXE' }
+      - window_process: { equals: 'OUTLOOK' }
   - commands: ['move --workspace 7']
     match:
-      - window_process: { equals: 'Revu.exe' }
+      - window_process: { equals: 'Revu' }
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.
@@ -162,9 +162,9 @@ window_rules:
         window_title: { regex: '.*? - Peek' }
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper' }
-      - window_process: { equals: 'dnplayer.exe' }
-      - window_process: { equals: 'Listary.exe' }
-      - window_process: { equals: 'zen.exe'}
+      - window_process: { equals: 'dnplayer' }
+      - window_process: { equals: 'Listary' }
+      - window_process: { equals: 'zen'}
         window_title: { equals: 'Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser' }
 
 binding_modes:
