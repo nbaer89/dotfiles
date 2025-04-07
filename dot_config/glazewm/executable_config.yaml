@@ -166,6 +166,8 @@ window_rules:
       - window_process: { equals: 'Listary' }
       - window_process: { equals: 'zen'}
         window_title: { equals: 'Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser' }
+      - window_process: { equals: 'Revu' }
+        window_title: { equals: 'AutoMark' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
