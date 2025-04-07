@@ -38,7 +38,7 @@
 (deftemplate charmod (char mod)
   (switch 
     ((key-timing 3 less-than 375)) $char break
-    () (tap-hold-release-timeout 200 500 $char $mod $char) break
+    () (tap-hold-release 200 500 $char $mod $char) break
   )
 )
 
@@ -51,12 +51,11 @@
   ;; Graphite Aliases
   n (t! charmod n lmet)
   r (t! charmod r lalt)
-  t (t! charmod t lsft)
-  s (t! charmod s lctl)
-  h (t! charmod h rctl)
-  a (t! charmod a rsft)
-  e (t! charmod e lalt)
-  i (t! charmod i rmet)
+  t (t! charmod t lctl)
+  s (t! charmod s lsft)
+  h (t! charmod h rsft)
+  a (t! charmod a rctl)
+  e (t! charmod e lalt) i (t! charmod i rmet)
   c (t! charmod c (layer-while-held vimnav))
 
   - (fork - S-Quote (lsft rsft))
