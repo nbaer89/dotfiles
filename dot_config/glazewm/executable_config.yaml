@@ -142,10 +142,10 @@ workspaces:
 window_rules:
   - commands: ['move --workspace 6']
     match:
-      - window_process: { 'OUTLOOK.EXE' }
+      - window_process: { equals: 'OUTLOOK.EXE' }
   - commands: ['move --workspace 7']
     match:
-      - window_process: { 'Revu.exe' }
+      - window_process: { equals: 'Revu.exe' }
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.
