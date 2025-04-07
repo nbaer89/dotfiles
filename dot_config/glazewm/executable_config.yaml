@@ -164,6 +164,8 @@ window_rules:
         window_class: { regex: 'HwndWrapper' }
       - window_process: { equals: 'dnplayer.exe' }
       - window_process: { equals: 'Listary.exe' }
+      - window_process: { equals: 'zen.exe'}
+        window_title: { equals: 'Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
