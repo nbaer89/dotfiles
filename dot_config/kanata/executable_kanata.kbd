@@ -1,0 +1,78 @@
+(defcfg
+  process-unmapped-keys yes
+  concurrent-tap-hold yes
+)
+
+(defsrc
+  grv  1 2 3 4 5 6 7 8 9 0 - = bspc
+  tab  q w e r t y u i o p [ ] \
+  caps a s d f g h j k l ; ' ret
+  lsft z x c v b n m , .  /   rsft
+  lctl lmet lalt spc ralt rmet rctl
+)
+
+(deflayer graphite
+  grv  1 2 3 4 5 6 7 8 9 0 [ ] bspc
+  tab  b l d w z @' f o u j ; = \
+  caps @n @r @t @s g y @h @a @e @i , ret
+  lsft q x m @c v k p . @- @/ rsft
+  lctl lmet lalt spc ralt rmet rctl
+)
+
+(deflayer qwerty
+  grv  1 2 3 4 5 6 7 8 9 0 - = bspc
+  tab  q w e r t y u i o p [ ] \
+  caps @qa @qs @qd @qf g h @qj @qk @ql @q; ' ret
+  lsft z x c @qv b n m , . / rsft
+  lctl lmet lalt spc ralt rmet rctl
+)
+
+(deflayer vimnav
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ lft down up rght _ _
+  _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _
+)
+
+(deftemplate charmod (char mod)
+  (switch 
+    ((key-timing 3 less-than 375)) $char break
+    () (tap-hold-release-timeout 200 500 $char $mod $char) break
+  )
+)
+
+(defvirtualkeys
+  shift (multi (layer-switch graphite) lsft)
+  clear (multi (layer-switch graphite) (on-press release-virtualkey shift))
+)
+
+(defalias
+  ;; Graphite Aliases
+  n (t! charmod n lmet)
+  r (t! charmod r lalt)
+  t (t! charmod t lsft)
+  s (t! charmod s lctl)
+  h (t! charmod h rctl)
+  a (t! charmod a rsft)
+  e (t! charmod e lalt)
+  i (t! charmod i rmet)
+  c (t! charmod c (layer-while-held vimnav))
+
+  - (fork - S-Quote (lsft rsft))
+  / (fork / S-, (lsft rsft))
+  , (fork , S-/ (lsft rsft))
+  ' (fork ' S-Minus (lsft rsft))
+
+  ;; Qwerty Aliases
+  qa (t! charmod a lmet)
+  qs (t! charmod s lalt)
+  qd (t! charmod d lsft)
+  qf (t! charmod f lctl)
+  qj (t! charmod j rctl)
+  qk (t! charmod k rsft)
+  ql (t! charmod l lalt)
+  q; (t! charmod ; rmet)
+  qv (t! charmod v (layer-while-held vimnav))
+)
+
