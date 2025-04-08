@@ -1,0 +1,13 @@
+README.md
+{{ if ne .chezmoi.os "linux" }}
+.bashrc
+.zshrc
+.config/tmux
+.config/zellij
+{{ end }}
+{{ if ne .chezmoi.os "windows" }}
+.config/glazewm
+.config/komorebi
+.config/powershell
+.config/wezterm
+{{ end }}
