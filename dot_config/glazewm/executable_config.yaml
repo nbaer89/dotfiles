@@ -162,12 +162,14 @@ window_rules:
         window_title: { regex: '.*? - Peek' }
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper' }
-      - window_process: { equals: 'dnplayer' }
       - window_process: { equals: 'Listary' }
       - window_process: { equals: 'zen'}
         window_title: { equals: 'Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser' }
       - window_process: { equals: 'Revu' }
         window_title: { equals: 'AutoMark' }
+      - window_process: { Equals: 'Revit' }
+      - window_process: { Equals: 'acad' }
+      - window_process: { Equals: 'MuMuPlayer'}
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
