@@ -167,9 +167,9 @@ window_rules:
         window_title: { equals: 'Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser' }
       - window_process: { equals: 'Revu' }
         window_title: { equals: 'AutoMark' }
-      - window_process: { Equals: 'Revit' }
-      - window_process: { Equals: 'acad' }
-      - window_process: { Equals: 'MuMuPlayer'}
+      - window_process: { equals: 'Revit' }
+      - window_process: { equals: 'acad' }
+      - window_process: { equals: 'MuMuPlayer' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
