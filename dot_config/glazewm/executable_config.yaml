@@ -20,7 +20,7 @@ general:
 
   cursor_jump:
     # Whether to automatically move the cursor on the specified trigger.
-    enabled: true
+    enabled: false
 
     # Trigger for cursor jump:
     # - 'monitor_focus': Jump when focus changes between monitors.
@@ -70,9 +70,9 @@ window_effects:
     # Change the corner style of the window's frame.
     # ** Exclusive to Windows 11 due to API limitations.
     corner_style:
-      enabled: false
+      enabled: true
       # Allowed values: 'square', 'rounded', 'small_rounded'.
-      style: 'square'
+      style: 'small_rounded'
 
     # Change the transparency of the window.
     transparency:
@@ -140,6 +140,12 @@ workspaces:
     bind_to_monitor: 1
 
 window_rules:
+  - commands: ['move --workspace 1']
+    match:
+      - window_process: { regex: "msedge|chrome|firefox|zen"}
+  - commands: ['move --workspace 2']
+    match:
+      - window_process: { regex: "dopus"}
   - commands: ['move --workspace 6']
     match:
       - window_process: { equals: 'OUTLOOK' }
@@ -160,16 +166,20 @@ window_rules:
         window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
       - window_process: { equals: 'PowerToys' }
         window_title: { regex: '.*? - Peek' }
-      - window_process: { equals: 'Lively' }
-        window_class: { regex: 'HwndWrapper' }
       - window_process: { equals: 'Listary' }
-      - window_process: { equals: 'zen'}
-        window_title: { equals: 'Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser' }
+        window_title: { equals: 'LauncherSearchWindow' }
       - window_process: { equals: 'Revu' }
         window_title: { equals: 'AutoMark' }
       - window_process: { equals: 'Revit' }
       - window_process: { equals: 'acad' }
       - window_process: { equals: 'MuMuPlayer' }
+      - window_process: { equals: 'zen'}
+        window_class: { regex: 'MozillaDialogClass|MozillaTaskbarPreviewClass'}
+  - commands: ['set-floating']
+    match:
+      - window_process:
+      - window_process: { equals: 'zen'}
+        window_title: { equals: 'Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
