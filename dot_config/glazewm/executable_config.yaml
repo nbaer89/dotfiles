@@ -177,7 +177,6 @@ window_rules:
         window_class: { regex: 'MozillaDialogClass|MozillaTaskbarPreviewClass'}
   - commands: ['set-floating']
     match:
-      - window_process:
       - window_process: { equals: 'zen'}
         window_title: { equals: 'Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser' }
 
