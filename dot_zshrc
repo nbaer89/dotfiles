@@ -46,4 +46,4 @@ export NVM_DIR="$HOME/.config/nvm"
 eval "$(zoxide init zsh)"
 
 eval "$(starship init zsh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
