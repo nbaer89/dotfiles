@@ -28,6 +28,8 @@ export VISUAL=nvim
 
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
+export TALOSCONFIG="$HOME/talos/talosconfig"
+
 . "$HOME/.local/share/../bin/env"
 
 # Alias
