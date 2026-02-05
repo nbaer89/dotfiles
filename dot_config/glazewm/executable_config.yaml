@@ -173,6 +173,7 @@ window_rules:
       - window_process: { equals: 'Revit' }
       - window_process: { equals: 'acad' }
       - window_process: { equals: 'MuMuPlayer' }
+      - window_process: { equals: 'MuMuNxDevice' }
       - window_process: { equals: 'zen'}
         window_class: { regex: 'MozillaDialogClass|MozillaTaskbarPreviewClass'}
   - commands: ['set-floating']
