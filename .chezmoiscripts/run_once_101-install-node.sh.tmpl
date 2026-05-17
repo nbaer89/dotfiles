@@ -1,4 +1,4 @@
-{{ if and (eq .chezmoi.os "linux") not (stat "/etc/NIXOS") -}}
+{{ if and (eq .chezmoi.os "linux") (not (stat "/etc/NIXOS")) -}}
 #!/usr/bin/env bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
 
