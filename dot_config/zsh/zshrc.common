@@ -1,0 +1,50 @@
+# ── PATH ─────────────────────────────────────────────────────────────────────
+export PATH=$HOME/bin:$HOME/.local/bin:$HOME/.local/share/bob/nvim-bin:/usr/local/bin:$PATH
+
+# ── XDG ──────────────────────────────────────────────────────────────────────
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_PICTURES_DIR="$HOME/Pictures"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# ── SSH agent (GCR) ───────────────────────────────────────────────────────────
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+
+# ── Editor ────────────────────────────────────────────────────────────────────
+export EDITOR=nvim
+export VISUAL=nvim
+
+# ── Starship ──────────────────────────────────────────────────────────────────
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+
+# ── Talos ─────────────────────────────────────────────────────────────────────
+export TALOSCONFIG="$HOME/talos/talosconfig"
+
+# ── Plugins ───────────────────────────────────────────────────────────────────
+source ~/.zsh/plugins/fsh/fast-syntax-highlighting.plugin.zsh
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# ── Rust ──────────────────────────────────────────────────────────────────────
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+# ── uv ────────────────────────────────────────────────────────────────────────
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+# ── nvm ───────────────────────────────────────────────────────────────────────
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# ── Homebrew ──────────────────────────────────────────────────────────────────
+[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && \
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# ── Prompt & tools ────────────────────────────────────────────────────────────
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+
+# ── Aliases ───────────────────────────────────────────────────────────────────
+source ~/.config/zsh/aliases.zsh
+
+

@@ -1,0 +1,37 @@
+# ── PATH ─────────────────────────────────────────────────────────────────────
+# Nix manages all tools — just need user scripts
+export PATH=$HOME/.local/bin:$PATH
+
+# ── XDG ──────────────────────────────────────────────────────────────────────
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# ── Editor ────────────────────────────────────────────────────────────────────
+export EDITOR=nvim
+export VISUAL=nvim
+
+# ── Starship ──────────────────────────────────────────────────────────────────
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+
+# ── Talos ─────────────────────────────────────────────────────────────────────
+export TALOSCONFIG="$HOME/talos/talosconfig"
+
+# ── Rust (rustup toolchain — installed post-boot) ─────────────────────────────
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+# ── Prompt & tools ────────────────────────────────────────────────────────────
+# Plugins (autosuggestions, syntax highlighting) loaded by Nix via /etc/zshrc
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+
+# ── Zellij: auto-attach on SSH login ─────────────────────────────────────────
+if [[ -z "$ZELLIJ" ]]; then
+  zellij attach main 2>/dev/null || zellij --session main
+fi
+
+# ── Aliases ───────────────────────────────────────────────────────────────────
+source ~/.config/zsh/aliases.zsh
+
+

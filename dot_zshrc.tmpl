@@ -1,0 +1,5 @@
+{{ if .isNixOS -}}
+source ~/.config/zsh/zshrc.nixos
+{{- else -}}
+source ~/.config/zsh/zshrc.common
+{{- end }}
