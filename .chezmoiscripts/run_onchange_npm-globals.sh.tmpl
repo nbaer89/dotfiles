@@ -1,0 +1,31 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+# Re-runs whenever npm-global.txt changes. Runs on ALL Linux (NixOS included).
+# hash: {{ include (joinPath .chezmoi.sourceDir "dot_config/packages/npm-global.txt") | sha256sum }}
+set -e
+
+# Resolve npm — NixOS has it via Nix, others via Homebrew node@22
+if ! command -v npm &>/dev/null; then
+  # Try Homebrew node
+  if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  fi
+  # Try nvm fallback
+  export NVM_DIR="$HOME/.config/nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+fi
+
+if ! command -v npm &>/dev/null; then
+  echo "ERROR: npm not found — skipping npm global installs"
+  exit 0
+fi
+
+echo "==> Installing npm globals..."
+while IFS= read -r pkg || [[ -n "$pkg" ]]; do
+  [[ "$pkg" =~ ^#.*$ || -z "$pkg" ]] && continue
+  echo "  -> npm install -g $pkg"
+  npm install -g "$pkg"
+done < "$HOME/.config/packages/npm-global.txt"
+
+echo "==> npm globals up to date"
+{{ end -}}

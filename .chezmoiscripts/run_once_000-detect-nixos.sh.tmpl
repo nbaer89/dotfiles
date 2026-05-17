@@ -1,14 +1,13 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/usr/bin/env bash
-# Sets isNixOS=true in the local chezmoi config if running on NixOS.
-# This file is run_once so it only executes on first chezmoi apply.
+# Detects NixOS and writes isNixOS=true to local chezmoi config.
+# run_once — only fires on first chezmoi apply on this machine.
 if [ -f /etc/NIXOS ]; then
   mkdir -p "$HOME/.config/chezmoi"
   cat > "$HOME/.config/chezmoi/chezmoi.toml" << TOML
 [data]
   isNixOS = true
 TOML
-  echo "chezmoi: NixOS detected, set isNixOS=true"
+  echo "chezmoi: NixOS detected — set isNixOS=true"
 fi
 {{ end -}}
-

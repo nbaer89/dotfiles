@@ -1,0 +1,22 @@
+{{ if and (eq .chezmoi.os "linux") (not (stat "/etc/NIXOS")) -}}
+#!/usr/bin/env bash
+# Installs the stable Rust toolchain via rustup (installed by Homebrew).
+# run_once — rustup self-updates independently after this.
+set -e
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" 2>/dev/null || true
+
+if ! command -v rustup &>/dev/null; then
+  echo "ERROR: rustup not found — make sure brew bundle ran first"
+  exit 1
+fi
+
+if rustup toolchain list | grep -q "stable"; then
+  echo "Rust stable already installed, skipping"
+else
+  echo "==> Installing Rust stable toolchain..."
+  rustup toolchain install stable
+  rustup default stable
+  rustup component add rust-analyzer clippy rustfmt
+fi
+{{ end -}}

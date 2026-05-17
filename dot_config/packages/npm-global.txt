@@ -1,0 +1,8 @@
+# npm global packages — installed on all Linux machines (NixOS included).
+# To add/update: edit this file and bump the version comment, then run:
+#   chezmoi update       (non-NixOS)
+#   chezmoi update       (NixOS — npm globals still managed here)
+#
+# version: 1
+@earendil-works/pi-coding-agent
+neovim

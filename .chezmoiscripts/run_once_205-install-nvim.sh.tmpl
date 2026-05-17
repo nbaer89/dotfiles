@@ -1,8 +1,0 @@
-{{ if and (eq .chezmoi.os "linux") (not (stat "/etc/NIXOS")) -}}
-#!/usr/bin/env bash
-sudo apt install -y fzf ripgrep unzip fd-find
-cargo install tree-sitter-cli --locked
-cargo install bob-nvim --locked
-$HOME/.cargo/bin/bob install stable
-$HOME/.cargo/bin/bob use stable
-{{ end -}}

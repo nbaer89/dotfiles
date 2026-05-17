@@ -1,5 +1,6 @@
 # ── PATH ─────────────────────────────────────────────────────────────────────
-export PATH=$HOME/bin:$HOME/.local/bin:$HOME/.local/share/bob/nvim-bin:/usr/local/bin:$PATH
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export PATH=$HOME/.local/bin:$PATH
 
 # ── XDG ──────────────────────────────────────────────────────────────────────
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -21,30 +22,25 @@ export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 # ── Talos ─────────────────────────────────────────────────────────────────────
 export TALOSCONFIG="$HOME/talos/talosconfig"
 
-# ── Plugins ───────────────────────────────────────────────────────────────────
-source ~/.zsh/plugins/fsh/fast-syntax-highlighting.plugin.zsh
-source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # ── Rust ──────────────────────────────────────────────────────────────────────
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # ── uv ────────────────────────────────────────────────────────────────────────
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 
-# ── nvm ───────────────────────────────────────────────────────────────────────
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# ── Homebrew ──────────────────────────────────────────────────────────────────
-[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && \
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# ── Zsh plugins (installed by Homebrew zsh — sourced manually) ────────────────
+BREW_PREFIX=$(brew --prefix)
+[ -f "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && \
+  source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+[ -f "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && \
+  source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # ── Prompt & tools ────────────────────────────────────────────────────────────
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
+# ── direnv ────────────────────────────────────────────────────────────────────
+eval "$(direnv hook zsh)"
+
 # ── Aliases ───────────────────────────────────────────────────────────────────
 source ~/.config/zsh/aliases.zsh
-
-

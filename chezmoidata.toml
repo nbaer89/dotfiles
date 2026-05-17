@@ -1,4 +1,4 @@
-# This file is committed to the repo with the default (non-NixOS) value.
-# On NixOS, chezmoi detects this via run_once script that sets isNixOS=true
-# in ~/.config/chezmoi/chezmoi.toml (local override, not committed).
+# Default chezmoi template data — committed to repo.
+# On NixOS, run_once_000-detect-nixos.sh writes isNixOS=true
+# to ~/.config/chezmoi/chezmoi.toml (local only, never committed).
 isNixOS = false

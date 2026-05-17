@@ -1,0 +1,26 @@
+{{ if and (eq .chezmoi.os "linux") (not (stat "/etc/NIXOS")) -}}
+#!/usr/bin/env bash
+# Re-runs whenever Brewfile changes — installs new packages, skips existing.
+# hash: {{ include (joinPath .chezmoi.sourceDir "Brewfile") | sha256sum }}
+set -e
+
+# Load brew into PATH
+if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+elif [ -f /usr/local/bin/brew ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+else
+  echo "ERROR: Homebrew not found. Run chezmoi apply again after bootstrap."
+  exit 1
+fi
+
+echo "==> Running brew bundle..."
+brew bundle --file="$HOME/.local/share/chezmoi/Brewfile" --no-lock
+
+# node@22 isn't linked by default — force link if needed
+if ! command -v node &>/dev/null; then
+  brew link --force --overwrite node@22
+fi
+
+echo "==> Brew bundle complete"
+{{ end -}}

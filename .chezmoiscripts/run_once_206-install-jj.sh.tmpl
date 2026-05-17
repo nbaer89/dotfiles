@@ -1,7 +1,0 @@
-{{ if and (eq .chezmoi.os "linux") (not (stat "/etc/NIXOS")) -}}
-#!/usr/bin/env bash
-sudo apt install libssl-dev openssl
-cargo install jj-cli --locked
-jj config set --user user.name "Nathan Baer"
-jj config set --user user.email "nbaer89@gmail.com"
-{{ end -}}
