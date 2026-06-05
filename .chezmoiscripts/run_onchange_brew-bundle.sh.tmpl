@@ -15,7 +15,7 @@ else
 fi
 
 echo "==> Running brew bundle..."
-brew bundle --file="$HOME/.local/share/chezmoi/Brewfile"
+brew bundle install --file="$HOME/.local/share/chezmoi/Brewfile"
 
 # node@22 isn't linked by default — force link if needed
 if ! command -v node &>/dev/null; then
