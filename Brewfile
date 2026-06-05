@@ -29,7 +29,7 @@ brew "fd"               # telescope dependency
 brew "tree-sitter"
 
 # ── Node (versioned — won't auto-upgrade to next major) ───────────────────────
-brew "node@22"
+brew "node@24"
 
 # ── Python ────────────────────────────────────────────────────────────────────
 brew "uv"               # replaces pip + virtualenv
