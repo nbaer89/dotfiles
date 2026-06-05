@@ -10,7 +10,9 @@ sudo apt update && sudo apt install -y curl git
 Install chezmoi:
 
 ```
-sh -c "$(curl -fsLS get.chezmoi.io)"
+cd ~
+sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
 ```
 
 Initialize:
