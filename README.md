@@ -1,6 +1,12 @@
 Bootstrap
 Debian / Ubuntu / WSL
 
+Install dependencies
+
+```
+sudo apt update && sudo apt install -y curl git
+```
+
 Install chezmoi:
 
 ```
