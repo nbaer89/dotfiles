@@ -15,11 +15,11 @@ else
 fi
 
 echo "==> Running brew bundle..."
-brew bundle --file="$HOME/.local/share/chezmoi/Brewfile" --no-lock
+brew bundle --file="$HOME/.local/share/chezmoi/Brewfile"
 
 # node@22 isn't linked by default — force link if needed
 if ! command -v node &>/dev/null; then
-  brew link --force --overwrite node@22
+  brew link --force --overwrite node@24
 fi
 
 echo "==> Brew bundle complete"
