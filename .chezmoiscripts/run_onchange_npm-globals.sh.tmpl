@@ -4,7 +4,7 @@
 # hash: {{ include (joinPath .chezmoi.sourceDir "dot_config/packages/npm-global.txt") | sha256sum }}
 set -euo pipefail
 
-PKG_FILE="$HOME/.config/packages/npm-global.txt"
+PKG_FILE="{{ joinPath .chezmoi.sourceDir "dot_config/packages/npm-global.txt" }}"
 
 # Resolve npm — NixOS has it via Nix, others via Homebrew node@22
 if ! command -v npm &>/dev/null; then
@@ -23,11 +23,6 @@ fi
 
 if [ ! -f "$PKG_FILE" ]; then
   echo "WARN: $PKG_FILE not found — skipping npm global installs"
-  exit 0
-fi
-
-if [ ! -s "$PKG_FILE" ]; then
-  echo "==> npm global package list is empty; skipping"
   exit 0
 fi
 
