@@ -54,14 +54,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Drop into nushell only if it exists and this is the top-level shell.
-if command -v nu >/dev/null 2>&1 \
-  && [[ "$(ps --no-header --pid=$PPID --format=comm)" != "nu" ]] \
-  && [[ -z "${BASH_EXECUTION_STRING:-}" ]] \
-  && [[ "${SHLVL}" == 1 ]]; then
-  if ! shopt -q login_shell; then
-    exec nu --login
-  else
-    exec nu
-  fi
+if command -v zsh >/dev/null 2>&1 \
+  && [ -z "${BASH_EXECUTION_STRING:-}" ] \
+  && [ -z "${ZSH_VERSION:-}" ]; then
+  exec zsh -l
 fi
