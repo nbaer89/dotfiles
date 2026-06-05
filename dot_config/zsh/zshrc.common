@@ -45,11 +45,10 @@ eval "$(direnv hook zsh)"
 # ── Aliases ───────────────────────────────────────────────────────────────────
 source ~/.config/zsh/aliases.zsh
 
-# Auto-start Zellij in home directory
-if [[ -z "$NO_ZELLIJ" ]] \
-  && [[ -z "$ZELLIJ" ]] \
-  && [[ $- == *i* ]] \
+# Auto-start Zellij in WSL zsh
+if [[ -o interactive ]] \
+  && [[ -z "${ZELLIJ:-}" ]] \
+  && [[ -z "${NO_ZELLIJ:-}" ]] \
   && command -v zellij >/dev/null 2>&1; then
-  cd "$HOME"
-  exec zellij attach main --create --default-layout default
+  exec zellij attach main --create
 fi
