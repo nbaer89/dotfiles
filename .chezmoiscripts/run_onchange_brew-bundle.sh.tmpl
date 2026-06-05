@@ -17,7 +17,7 @@ fi
 echo "==> Running brew bundle..."
 brew bundle install --file="$HOME/.local/share/chezmoi/Brewfile"
 
-# node@22 isn't linked by default — force link if needed
+# node@24 isn't linked by default — force link if needed
 if ! command -v node &>/dev/null; then
   brew link --force --overwrite node@24
 fi
