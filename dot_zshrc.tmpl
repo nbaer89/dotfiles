@@ -1,4 +1,4 @@
-{{ if .isNixOS -}}
+{{- if and (hasKey . "isNixOS") .isNixOS -}}
 source ~/.config/zsh/zshrc.nixos
 {{- else -}}
 source ~/.config/zsh/zshrc.common
