@@ -50,5 +50,9 @@ if [[ -z "$NO_ZELLIJ" ]] \
   && [[ -z "$ZELLIJ" ]] \
   && [[ $- == *i* ]] \
   && command -v zellij >/dev/null 2>&1; then
+
+  mkdir -p "$HOME/projects"
+  cd "$HOME/projects"
+
   zellij attach main -c
 fi
