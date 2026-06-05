@@ -10,7 +10,7 @@ sh -c "$(curl -fsLS get.chezmoi.io)"
 Initialize:
 
 ```
-chezmoi init --apply git@github.com:nbaer89/dotfiles.git
+chezmoi init --apply https://github.com/nbaer89/dotfiles.git
 ```
 
 Updating
